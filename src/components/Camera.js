@@ -37,13 +37,9 @@ const Camera = () => {
           />
         </CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Plant Camera
-          </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Live stream of my plants using the camera module connected to a Raspberry Pi Zero W. If you see an
-            image of a dahlia, you do not have access to my camera. You can click below to request access but
-            it is not guaranteed.
+            If you see an image of a dahlia, you do not have access to my camera. You can click below to
+            request access but it is not guaranteed.
           </Typography>
         </CardContent>
         <CardActions>
