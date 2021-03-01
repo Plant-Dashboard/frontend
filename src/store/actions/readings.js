@@ -17,9 +17,11 @@ export const getReadingsForToday = () => {
           .toDate()}`
       );
 
-      let {count, data, success} = res.data;
+      let {data, success} = res.data;
 
       if (success) {
+        // Reverse array so oldest values are first for the graph
+        data = data.reverse();
         dispatch({type: "GET_READINGS", payload: data});
         dispatch({type: "LOADING_READINGS", payload: false});
       }
