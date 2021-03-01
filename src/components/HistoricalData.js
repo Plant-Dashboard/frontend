@@ -8,10 +8,8 @@ import {useSelector} from "react-redux";
 const useStyles = makeStyles(theme => ({
   paper: {
     margin: "25px",
-    paddingRight: "50px",
-    paddingBottom: "25px",
     textAlign: "center",
-    color: theme.palette.text.primary,
+    color: theme.palette.text.secondary,
   },
 }));
 const HistoricalData = () => {
@@ -20,13 +18,11 @@ const HistoricalData = () => {
 
   return (
     <Paper className={classes.paper}>
-      <h1>Graph Data</h1>
-      <ResponsiveContainer height={500} minWidth={340}>
-        <LineChart
-          width={1000}
-          height={400}
-          data={readingState.readings}
-          margin={{top: 5, right: 20, bottom: 5, left: 0}}>
+      <h3 style={{padding: "15px"}}>
+        Temperature and Humidity data for {moment(readingState.readings[0].readingTime).format("LL")}
+      </h3>
+      <ResponsiveContainer height={350} minWidth={200}>
+        <LineChart data={readingState.readings} margin={{top: 5, right: 50, bottom: 25, left: 0}}>
           <Line type="monotone" dataKey="temperature" stroke="#a81313" />
           <Line type="monotone" dataKey="humidity" stroke="#134e91" />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
