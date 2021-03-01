@@ -49,9 +49,8 @@ const LiveData = () => {
 
   const dispatch = useDispatch();
   const readingState = useSelector(state => state.readings);
-  const currentReading = readingState.readings[0];
+  const currentReading = readingState.readings[readingState.readings.length - 1];
   const classes = useStyles();
-
   let tempSum = 0;
   let rhSum = 0;
 
@@ -65,8 +64,10 @@ const LiveData = () => {
 
   return (
     <div className={classes.container}>
-      <h1 className={classes.readingTime}>Last reading</h1>
-      <h2 className={classes.readingTime}> {moment(currentReading.readingTime).format("lll")}</h2>
+      <h1 className={classes.readingTime}>
+        Last reading was {moment(currentReading.readingTime).fromNow()} at{" "}
+        {moment(currentReading.readingTime).format("LT")}
+      </h1>
       <Grid container spacing={5} justify="center">
         <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
           <Paper className={classes.paper}>
