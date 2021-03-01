@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import LiveData from "./LiveData";
+import HistoricalData from "./HistoricalData";
 import Camera from "./Camera";
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,9 +34,7 @@ const ContentLayout = props => {
       </Grid>
       <Grid container>
         <Grid item md={12} sm={12}>
-          <Paper className={classes.paper}>
-            <h1 style={{height: "300px", widht: "100%"}}>Graph Data</h1>
-          </Paper>
+          <HistoricalData />
         </Grid>
       </Grid>
     </div>
