@@ -2,12 +2,12 @@ import {Provider} from "react-redux";
 import {applyMiddleware, combineReducers, createStore, compose} from "redux";
 import ReduxThunk from "redux-thunk";
 import readingsReducer from "./store/reducers/readings";
-import userReducer from "./store/reducers/user";
+import authReducer from "./store/reducers/auth";
 import ContentLayout from "./components/ContentLayout";
 
 const rootReducer = combineReducers({
   readings: readingsReducer,
-  user: userReducer,
+  auth: authReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE_ || compose;
