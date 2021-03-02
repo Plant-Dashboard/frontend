@@ -10,9 +10,9 @@ export const getReadingsForToday = () => {
     let today = moment().startOf("day");
     try {
       const res = await axios.get(
-        `http://10.0.0.9:5000/api/v1/readings?readingTime[gte]=${today.toDate()}&readingTime[lt]=${moment(
-          today
-        )
+        `${
+          process.env.REACT_APP_API_ENDPOINT
+        }/api/v1/readings?readingTime[gte]=${today.toDate()}&readingTime[lt]=${moment(today)
           .endOf("day")
           .toDate()}`
       );
