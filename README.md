@@ -9,7 +9,11 @@ You can check the site out here: https://plant-dashboard.netlify.app/
 ## To Do
  - Add date picker to display different days on the graph
  - Edit modal to close on button clicks
+ - Update logos to replace the default react ones
+ - Add button to load new data (but not refresh) and set auto refresh interval
 
-Screen shots: 
-![UI/App Demo](https://user-images.githubusercontent.com/34038688/109583872-97966680-7ace-11eb-86de-c686c074b2e0.gif)
+
+## Screen shots: 
+![ddeemmoo](https://user-images.githubusercontent.com/34038688/109585293-3b811180-7ad1-11eb-86b3-b6bddba92d9a.gif)
+
 
