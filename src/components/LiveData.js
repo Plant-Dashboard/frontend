@@ -81,7 +81,7 @@ const LiveData = () => {
           <Paper className={classes.paper}>
             <p className={classes.avg}>Current RH</p>
             <div className={classes.dataContainer}>
-              <p className={classes.data}> {Math.floor(currentReading.temperature)} %</p>
+              <p className={classes.data}> {Math.floor(currentReading.humidity)} %</p>
             </div>
           </Paper>
         </Grid>
