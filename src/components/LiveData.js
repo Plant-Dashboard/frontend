@@ -42,13 +42,14 @@ const useStyles = makeStyles(theme => ({
 
 const LiveData = () => {
   const dispatch = useDispatch();
+  const readingState = useSelector(state => state.readings);
+
   useEffect(() => {
     (async () => {
       await dispatch(readingActions.getReadingsForToday());
     })();
-  }, [dispatch]);
+  }, []);
 
-  const readingState = useSelector(state => state.readings);
   const currentReading = readingState.readings[readingState.readings.length - 1];
   const classes = useStyles();
   let tempSum = 0;
@@ -61,7 +62,9 @@ const LiveData = () => {
 
   let avgTemp = Math.floor(tempSum / readingState.readings.length);
   let avgRh = Math.floor(rhSum / readingState.readings.length);
-
+  if (readingState.loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className={classes.container}>
       <h1 className={classes.readingTime}>

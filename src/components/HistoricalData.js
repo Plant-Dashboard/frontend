@@ -16,6 +16,9 @@ const HistoricalData = () => {
   const classes = useStyles();
   const readingState = useSelector(state => state.readings);
 
+  if (readingState.loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <Paper className={classes.paper}>
       <h3 style={{padding: "15px"}}>
