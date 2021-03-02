@@ -42,7 +42,6 @@ const Camera = () => {
   const [open, setOpen] = useState(false);
   const [password, setPassword] = useState("");
 
-  console.log(doesHaveCameraAccess);
   const handleOpen = () => {
     setOpen(true);
   };
