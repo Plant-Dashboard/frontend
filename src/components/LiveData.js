@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -41,13 +41,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const LiveData = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     (async () => {
       await dispatch(readingActions.getReadingsForToday());
     })();
-  }, []);
+  }, [dispatch]);
 
-  const dispatch = useDispatch();
   const readingState = useSelector(state => state.readings);
   const currentReading = readingState.readings[readingState.readings.length - 1];
   const classes = useStyles();
