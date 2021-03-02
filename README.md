@@ -12,7 +12,8 @@ You can check the site out here: https://plant-dashboard.netlify.app/
  - Update logos to replace the default react ones
  - Add button to load new data (but not refresh) and set auto refresh interval
 
-Screen shots: 
+
+## Screen shots: 
 ![ddeemmoo](https://user-images.githubusercontent.com/34038688/109585293-3b811180-7ad1-11eb-86b3-b6bddba92d9a.gif)
 
 
