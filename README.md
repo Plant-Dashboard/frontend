@@ -11,7 +11,5 @@ You can check the site out here: https://plant-dashboard.netlify.app/
  - Edit modal to close on button clicks
 
 Screen shots: 
-
-
 ![UI/App Demo](https://user-images.githubusercontent.com/34038688/109583872-97966680-7ace-11eb-86de-c686c074b2e0.gif)
 
