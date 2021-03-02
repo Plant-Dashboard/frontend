@@ -12,4 +12,6 @@ You can check the site out here: https://plant-dashboard.netlify.app/
 
 Screen shots: 
 
-![UI/App Demo](https://i.ibb.co/bK3TzwH/demo-plant.gif)
+
+![UI/App Demo](https://user-images.githubusercontent.com/34038688/109583872-97966680-7ace-11eb-86de-c686c074b2e0.gif)
+
