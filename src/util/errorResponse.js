@@ -3,6 +3,7 @@ export const errorResponse = err => {
     console.log("firs if. Figure out how to parse");
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
+    console.log(err.message);
     if (err.response.data) {
       throw new Error(`${err.response.data.error} (Code: ${err.response.status})`);
     } else {
