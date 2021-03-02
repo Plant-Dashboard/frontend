@@ -1,6 +1,6 @@
 # Plant Dashboard Front End
 
-The main purpose of this site is for me to monitor my plants while I am not home. This is done by displaying the current and average temperture and humidity along with a graph of readings for the day. The camera stream is only allowed to users that have the password. 
+The main purpose of this site is for me to monitor my plants environment at home and remotely. This is done by displaying the current and average temperature and humidity, a graph of readings for the day and a live camera stream. The camera stream is only allowed to users that have the password. 
 
 You can check the site out here: https://plant-dashboard.netlify.app/
 
