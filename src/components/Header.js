@@ -25,12 +25,10 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static"  color="transparent" elevation={0}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Plant Dashboard
           </Typography>
-          <Toolbar>
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -39,7 +37,6 @@ const Header = () => {
               onClick={async () => await dispatch(readingActions.getReadingsForToday())}>
               <SyncIcon />
             </IconButton>
-          </Toolbar>
         </Toolbar>
       </AppBar>
     </div>
