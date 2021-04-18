@@ -4,7 +4,8 @@ import ReduxThunk from "redux-thunk";
 import readingsReducer from "./store/reducers/readings";
 import authReducer from "./store/reducers/auth";
 import ContentLayout from "./components/ContentLayout";
-
+import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 const rootReducer = combineReducers({
   readings: readingsReducer,
   auth: authReducer,
@@ -25,13 +26,22 @@ const logger = store => {
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(ReduxThunk, logger)));
 
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
+
 function App() {
   return (
-    <Provider store={store}>
-      <div>
-        <ContentLayout />
-      </div>
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Provider store={store}>
+        <div>
+          <ContentLayout />
+        </div>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
