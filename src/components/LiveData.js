@@ -12,9 +12,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
   },
   container: {
-    paddingTop: "40px",
     height: "100%",
-    margin: "20px",
+    margin: "0px 20px",
     minHeight: "390px",
   },
   data: {
@@ -29,12 +28,10 @@ const useStyles = makeStyles(theme => ({
   },
   dataContainer: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     alignItems: "center",
   },
   paper: {
-    height: "450",
-
     textAlign: "center",
     color: theme.palette.text.primary,
   },
@@ -51,6 +48,7 @@ const LiveData = () => {
   }, []);
 
   const currentReading = readingState.readings[readingState.readings.length - 1];
+  console.log(readingState);
   const classes = useStyles();
   let tempSum = 0;
   let rhSum = 0;
@@ -65,6 +63,9 @@ const LiveData = () => {
   if (readingState.loading) {
     return <h1>Loading...</h1>;
   }
+  if (currentReading == undefined) {
+    return <h2>Error loading current readings</h2>;
+  }
   return (
     <div className={classes.container}>
       <h1 className={classes.readingTime}>
@@ -72,7 +73,7 @@ const LiveData = () => {
         {moment(currentReading.readingTime).format("LT")}
       </h1>
       <Grid container spacing={5} justify="center">
-        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+        <Grid item xl={5} md={6} sm={6} xs={6}>
           <Paper className={classes.paper}>
             <p className={classes.avg}>Current Temp</p>
             <div className={classes.dataContainer}>
@@ -80,7 +81,7 @@ const LiveData = () => {
             </div>
           </Paper>
         </Grid>
-        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+        <Grid item xl={5}  md={6} sm={6} xs={6}>
           <Paper className={classes.paper}>
             <p className={classes.avg}>Current RH</p>
             <div className={classes.dataContainer}>
@@ -88,7 +89,7 @@ const LiveData = () => {
             </div>
           </Paper>
         </Grid>
-        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+        <Grid item xl={5}  md={6} sm={6} xs={6}>
           <Paper className={classes.paper}>
             <p className={classes.avg}>Average Temp</p>
             <div className={classes.dataContainer}>
@@ -96,7 +97,7 @@ const LiveData = () => {
             </div>
           </Paper>
         </Grid>
-        <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
+        <Grid item xl={5}  md={6} sm={6} xs={6}>
           <Paper className={classes.paper}>
             <p className={classes.avg}>Average RH</p>
             <div className={classes.dataContainer}>
