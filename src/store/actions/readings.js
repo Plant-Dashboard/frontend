@@ -14,7 +14,7 @@ export const getReadingsForToday = () => {
           process.env.REACT_APP_API_ENDPOINT
         }/api/v1/readings?readingTime[gte]=${today.toDate()}&readingTime[lt]=${moment(today)
           .endOf("day")
-          .toDate()}`
+          .toDate()}&limit=100`
       );
 
       let {data, success} = res.data;
