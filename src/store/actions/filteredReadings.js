@@ -3,6 +3,7 @@ import {errorResponse} from "../../util/errorResponse";
 import moment from "moment";
 export const GET_FILTERED_READINGS = "GET_FILTERED_READINGS";
 export const NO_RESULTS_FOUND = "NO_RESULTS_FOUND";
+export const LOADING_FILTERED_READINGS = "LOADING_FILTERED_READINGS";
 
 export const getReadingWithParams = (type, params, page = 1) => {
   return async dispatch => {
@@ -12,7 +13,7 @@ export const getReadingWithParams = (type, params, page = 1) => {
       );
 
       let {success, count, pagination} = res.data;
-    
+
       if (success) {
         if (count > 0) {
           dispatch({type: "GET_FILTERED_READINGS", payload: res.data});
@@ -22,7 +23,6 @@ export const getReadingWithParams = (type, params, page = 1) => {
       }
     } catch (err) {
       errorResponse(err);
-      dispatch({type: "LOADING_READINGS", payload: false});
     }
   };
 };
