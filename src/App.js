@@ -2,12 +2,15 @@ import {Provider} from "react-redux";
 import {applyMiddleware, combineReducers, createStore, compose} from "redux";
 import ReduxThunk from "redux-thunk";
 import readingsReducer from "./store/reducers/readings";
+import filterReducer from "./store/reducers/filteredReadings";
 import authReducer from "./store/reducers/auth";
 import ContentLayout from "./components/ContentLayout";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import filteredReadings from "./store/reducers/filteredReadings";
 const rootReducer = combineReducers({
   readings: readingsReducer,
+  filter: filteredReadings,
   auth: authReducer,
 });
 
