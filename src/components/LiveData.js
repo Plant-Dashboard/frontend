@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import moment from "moment";
 import * as readingActions from "../store/actions/readings";
 import {makeStyles} from "@material-ui/core/styles";
+import Loader from "react-loader-spinner";
 
 const useStyles = makeStyles(theme => ({
   readingTime: {
@@ -61,7 +62,7 @@ const LiveData = () => {
   let avgTemp = Math.floor(tempSum / readingState.readings.length);
   let avgRh = Math.floor(rhSum / readingState.readings.length);
   if (readingState.loading) {
-    return <h1>Loading...</h1>;
+   return <Loader type="TailSpin" color="white" height={80} width={80}/>
   }
   if (currentReading == undefined) {
     return <h2>Error loading current readings</h2>;
