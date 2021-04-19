@@ -14,7 +14,12 @@ You can check the site out here: https://plant-dashboard.netlify.app/
  - ~~Add button to load new data (but not refresh) and set auto refresh interval~~
 
 
-## Screen shots: 
+# Screen shots: 
+
+
+
+### Add to your homescreen for app view (iOS and Android)
+![pwa](https://user-images.githubusercontent.com/34038688/115262080-33714580-a102-11eb-953a-1aebe3eccd4e.gif)
 
 v2 - Added dark theme. Added temperature and humitity sliders to filter readings. Removed camera stream for now. 
 ![UI Version 2](https://user-images.githubusercontent.com/34038688/115248056-55180000-a0f5-11eb-8702-eedb5049be1d.gif)
