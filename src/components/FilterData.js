@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import Slider from "@material-ui/core/Slider";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import * as readingActions from "../store/actions/readings";
+import * as filterActions from "../store/actions/filteredReadings";
 import Pagination from "@material-ui/lab/Pagination";
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }));
 const FilterData = () => {
   const classes = useStyles();
-  const readingState = useSelector(state => state.readings);
+  const filterState = useSelector(state => state.filter);
   const [temperature, setTemperature] = useState([20, 37]);
   const [humidity, setHumidity] = useState([20, 37]);
   const [page, setPage] = useState(1);
@@ -38,7 +38,7 @@ const FilterData = () => {
   const [getRh, setGetRh] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [readingState.filteredReadings]);
+  useEffect(() => {}, [filterState.filteredReadings]);
 
   const handleTemperatureChange = (event, newValue) => {
     setTemperature(newValue);
@@ -50,7 +50,7 @@ const FilterData = () => {
 
   const getFilteredData = async (type, params, page) => {
     try {
-      await dispatch(readingActions.getReadingWithParams(type, params, page));
+      await dispatch(filterActions.getReadingWithParams(type, params, page));
     } catch (err) {
       alert(err.message);
     }
@@ -125,44 +125,43 @@ const FilterData = () => {
             <Typography id="range-slider" gutterBottom>
               Date range
             </Typography>
-
-            <Button variant="contained">Search</Button>
+            <Button variant="contained">COMING SOON</Button>
           </Paper>
         </Grid>
       </Grid>
 
       <Paper className={classes.paper2}>
         <Grid container spacing={2} justify="center">
-          <div>
-            {readingState.noResults ? (
+          <div style={{padding: '10px'}}>
+            {filterState.noResults ? (
               <h2>
-                {getTemp && `No results for temperature range ${temperature[0]} - ${temperature[1]}`}
-                {getRh && `No results for humidity range ${humidity[0]} - ${humidity[1]}`}
+                {getTemp && `No Results For Temperature Range ${temperature[0]} - ${temperature[1]}`}
+                {getRh && `No Results For Temperature Range ${humidity[0]} - ${humidity[1]}`}
               </h2>
             ) : (
               <h2>
-                {getTemp && `Results for temperature range ${temperature[0]} - ${temperature[1]}`}
-                {getRh && `Results for humidity range ${humidity[0]} - ${humidity[1]}`}
+                {getTemp && `Showing Temperature Range ${temperature[0]} - ${temperature[1]}`}
+                {getRh && `Showing Humidity Range ${humidity[0]} - ${humidity[1]}`}
               </h2>
             )}
 
-            {(readingState.pagination.next || readingState.pagination.prev) && (
+            {(filterState.pagination.next || filterState.pagination.prev) && (
               <Pagination
                 showFirstButton
                 showLastButton
-                count={readingState.pagination.totalPages}
+                count={filterState.pagination.totalPages}
                 page={page}
                 onChange={handlePagination}
                 boundaryCount={5}
               />
             )}
           </div>
-          {readingState.filteredReadings.length < 1 && !readingState.noResults ? (
+          {filterState.filteredReadings.length < 1 && !filterState.noResults ? (
             <h2>Search a filter to see results</h2>
           ) : (
             <ResponsiveContainer height={350} minWidth={200}>
               <LineChart
-                data={readingState.filteredReadings}
+                data={filterState.filteredReadings}
                 margin={{top: 15, right: 50, bottom: 15, left: 0}}>
                 <Line type="monotone" dataKey="temperature" stroke="#e8ca5d" />
                 <Line type="monotone" dataKey="humidity" stroke="#24adb5" />
