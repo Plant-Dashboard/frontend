@@ -16,10 +16,10 @@ You can check the site out here: https://plant-dashboard.netlify.app/
 
 ## Screen shots: 
 
-v2
+v2 - Added dark theme. Added temperature and humitity sliders to filter readings. Removed camera stream for now. 
 ![UI Version 2](https://user-images.githubusercontent.com/34038688/115248056-55180000-a0f5-11eb-8702-eedb5049be1d.gif)
 
-v1
+v1- First basic prototype
 ![UI Version 1](https://user-images.githubusercontent.com/34038688/109585293-3b811180-7ad1-11eb-86b3-b6bddba92d9a.gif)
 
 
